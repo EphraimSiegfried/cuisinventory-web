@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Tillana:wght@400;600&display=swap");
+body {
+  margin: 0;
+  background-color: #32302f;
+  box-sizing: border-box;
+  font-family: "Tillana", cursive;
+}
