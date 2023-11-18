@@ -1,7 +1,6 @@
 {
-  "name": "cuisinventory-web",
-  "homepage": "https://ephraimsiegfried.github.io/cuisinventory-web/",
-  "private": true,
+  "name":"cuisinventory-web",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
