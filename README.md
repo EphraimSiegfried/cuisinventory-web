@@ -1,8 +1,11 @@
-# React + Vite
+# Cuisinventory Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website for the Cuisinventory inventory backend system
 
-Currently, two official plugins are available:
+## Running the application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Install [node](https://nodejs.org/en/download/)
+* Clone this repository
+* CD into this directory
+* Run `npm install`
+* Run `npm run dev` (Runs the app in the development mode.)
