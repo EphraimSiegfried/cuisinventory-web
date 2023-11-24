@@ -1,31 +1,40 @@
 import React, { useState, useEffect } from "react";
 import mockData from "../assets/mockData";
 import SortDropdown from "./SortDropdown";
+import axios from "axios";
+
+var API_ENDPOINT =
+  "https://kev1n27.pythonanywhere.com/cuisinventory?key=th1s1sak3y";
 
 export default function TableComponent() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Here we would fetch the data from the API
-    setData(mockData);
+    axios
+      .get(API_ENDPOINT)
+      .then((response) => {
+        setData(response.data.data.products);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   const sortByAmount = () => {
-    const sortedData = [...data].sort(
-      (a, b) => a.productAmount - b.productAmount,
-    );
+    const sortedData = [...data].sort((a, b) => a.quantity - b.quantity);
     setData(sortedData);
   };
 
-  const sortByLogDate = () => {
+  const sortByDate = () => {
     const sortedData = [...data].sort(
-      (a, b) => new Date(a.logDate) - new Date(b.logDate),
+      (a, b) => new Date(a.date) - new Date(b.date),
     );
     setData(sortedData);
   };
   const sortOptions = [
     { label: "Sort by Amount", method: sortByAmount },
-    { label: "Sort by Date", method: sortByLogDate },
+    { label: "Sort by Date", method: sortByDate },
   ];
 
   return (
@@ -41,18 +50,25 @@ export default function TableComponent() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Detail</th>
-              <th>Amount</th>
-              <th>Log Date</th>
+              <th>Remaining</th>
+              <th>Quantity</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item, index) => (
               <tr key={index}>
-                <td>{item.productName}</td>
-                <td>{item.productDetail}</td>
-                <td>{item.productAmount}</td>
-                <td>{item.logDate}</td>
+                <td>{item.name}</td>
+                <td>{item.quantity.remaining - item.quantity.packaging} g</td>
+                <td>
+                  {Math.round(
+                    (100 *
+                      (item.quantity.remaining - item.quantity.packaging)) /
+                      (item.quantity.initial - item.quantity.packaging),
+                  ) / 100}{" "}
+                  %
+                </td>
+                <td>{new Date(1000 * item.date).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>
