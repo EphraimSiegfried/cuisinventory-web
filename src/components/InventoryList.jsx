@@ -41,7 +41,6 @@ export default function TableComponent({ device_Id }) {
       <div className="flex-col justify-center items-center my-4">
         <h2 className="text-2xl font-bold m-4">Your Kitchen Inventory</h2>
         <div className="flex justify-end items-center">
-          <button className="btn">Add item</button>
           <SortDropdown sortOptions={sortOptions} />
         </div>
 
