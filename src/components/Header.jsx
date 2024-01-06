@@ -1,5 +1,6 @@
 import React from "react";
 import ThemeSwitch from "./ThemeSwitch";
+import Logout from "./Logout";
 
 export default function Header() {
   return (
@@ -7,8 +8,11 @@ export default function Header() {
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">Cuisinventory</a>
       </div>
-      <div className="flex-none">
-        <ThemeSwitch />
+      <div className="navbar-end">
+        <div className="flex-none">
+          <ThemeSwitch />
+        </div>
+        <Logout />
       </div>
     </div>
   );
