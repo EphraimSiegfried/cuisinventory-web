@@ -9,9 +9,6 @@ export default function Header() {
         <a className="btn btn-ghost text-xl">Cuisinventory</a>
       </div>
       <div className="navbar-end">
-        <div className="flex-none">
-          <ThemeSwitch />
-        </div>
         <Logout />
       </div>
     </div>
