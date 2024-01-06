@@ -64,7 +64,7 @@ export default function TableComponent({ device_Id }) {
                     (100 *
                       (item.quantity.remaining - item.quantity.packaging)) /
                       (item.quantity.initial - item.quantity.packaging),
-                  ) / 100}{" "}
+                  )}{" "}
                   %
                 </td>
                 <td>{new Date(1000 * item.date).toLocaleDateString()}</td>
