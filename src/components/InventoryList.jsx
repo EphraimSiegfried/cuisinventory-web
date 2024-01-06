@@ -3,15 +3,14 @@ import mockData from "../assets/mockData";
 import SortDropdown from "./SortDropdown";
 import axios from "axios";
 
-var API_ENDPOINT =
-  "https://kev1n27.pythonanywhere.com/cuisinventory?key=th1s1sak3y";
+var API_ENDPOINT = "https://kev1n27.pythonanywhere.com/cuisinventory?";
 
-export default function TableComponent() {
+export default function TableComponent({ device_Id }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(API_ENDPOINT)
+      .get(API_ENDPOINT + "key=" + device_Id)
       .then((response) => {
         setData(response.data.data.products);
         console.log(response);
